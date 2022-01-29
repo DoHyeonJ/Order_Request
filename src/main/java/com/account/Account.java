@@ -1,9 +1,8 @@
-package account;
+package com.account;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.context.annotation.Configuration;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -18,10 +17,10 @@ public class Account {
     private Long id;
 
     @Column
-    private String password;
+    private String email;
 
     @Column
-    private String email;
+    private String password;
 
     @Column
     private String company; // 회사명
@@ -34,5 +33,9 @@ public class Account {
 
     @Column
     private LocalDateTime quitDate; // 탈퇴일 , 3개월 경과시 자동삭제처리
+
+    @Column
+    private String role; // 권한 , 일반유저 : USER, 관리자 : ADMIN
+
 
 }

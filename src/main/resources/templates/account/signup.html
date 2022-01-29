@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments.html :: head"></head>
+<body>
+<form action="#" th:action="@{/signup}" th:object="${signUpForm}" method="post">
+
+    <div>
+        <label for="email">Email: </label>
+        <input id="email" th:field="*{email}" name="email" type="text">
+    </div>
+    <div>
+        <label for="password">패스워드: </label>
+        <input id="password" th:field="*{password}" name="password" type="password">
+    </div>
+    <div>
+        <label for="company">회사명: </label>
+        <input id="company" th:field="*{company}" name="company" type="text">
+    </div>
+
+    <input type="button" value="가입하기" th:onclick="signUp()">
+</form>
+
+<script type="text/javascript">
+    function signUp() {
+        const email = $('#email');
+        const password = $('#password');
+        const company = $('#company');
+
+        // email 검증
+        const regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+
+        if (!email.val().length > 0) {
+            alert("Email 을 입력해주세요");
+            email.focus();
+            return false;
+        } else if (email.val().match(regExp) == null) {
+            alert("Email 형식이 올바르지않습니다");
+            email.focus();
+            return false;
+        }
+
+        if (!password.val().length > 0) {
+            alert("패스워드를 입력해주세요");
+            password.focus();
+            return false;
+        } else if (password.val().length < 8 || password.val().length > 20) {
+            alert("패스워드는 8자이상 20자이하로 작성해주세요");
+            password.focus();
+            return false;
+        }
+
+        if (!company.val().length > 0) {
+            alert("회사명을 입력해주세요");
+            company.focus();
+            return false;
+        }
+
+        $('form').submit();
+    }
+</script>
+
+</body>
+</html>
