@@ -1,10 +1,10 @@
-package com.intro;
+package com.main;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class IntroController {
+public class MainController {
 
     @GetMapping("/")
     public String index() {

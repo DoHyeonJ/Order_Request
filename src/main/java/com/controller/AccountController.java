@@ -1,5 +1,7 @@
-package com.account;
+package com.controller;
 
+import com.module.account.AccountService;
+import com.module.account.SignUpForm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

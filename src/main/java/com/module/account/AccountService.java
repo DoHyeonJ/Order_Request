@@ -1,4 +1,4 @@
-package com.account;
+package com.module.account;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;

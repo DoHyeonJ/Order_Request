@@ -1,5 +1,6 @@
-package com.account;
+package com.module.account;
 
+import com.module.BaseTimeEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,7 +11,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter @Setter
 @NoArgsConstructor
-public class Account {
+public class Account extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,9 +27,6 @@ public class Account {
     private String company; // 회사명
 
     @Column
-    private LocalDateTime registrationDate; // 등록일
-
-    @Column
     private Character status; // Y : 활동중, N : 접속중지, D : 삭제
 
     @Column
@@ -36,6 +34,5 @@ public class Account {
 
     @Column
     private String role; // 권한 , 일반유저 : USER, 관리자 : ADMIN
-
 
 }
